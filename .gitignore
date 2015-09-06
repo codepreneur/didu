@@ -4,6 +4,7 @@
 
 # Xcode
 #
+iOS/didu/Info.plist
 build/
 *.pbxuser
 !default.pbxuser
