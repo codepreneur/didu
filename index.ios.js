@@ -1,6 +1,6 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * didU App
+ * https://github.com/codepreneur/didu
  */
 'use strict';
 
@@ -12,12 +12,50 @@ var {
   View,
 } = React;
 
+var FBSDKLogin = require('react-native-fbsdklogin');
+
+var {
+  FBSDKLoginButton,
+} = FBSDKLogin;
+
+var FBSDKCore = require('react-native-fbsdkcore');
+
+var {
+  FBSDKAccessToken,
+} = FBSDKCore;
+
+var Login = React.createClass({
+  render: function() {
+    return (
+      <View>
+        <FBSDKLoginButton
+          onLoginFinished={(error, result) => {
+            if (error) {
+              alert('Error logging in.');
+            } else {
+              if (result.isCanceled) {
+                alert('Login cancelled.');
+              } else {
+                FBSDKAccessToken.getCurrentAccessToken((token) => {
+                  console.log(token.tokenString);
+                })
+              }
+            }
+          }}
+          onLogoutFinished={() => console.log('Logged out.')}
+          readPermissions={[]}
+          publishPermissions={['publish_actions']}/>
+      </View>
+    );
+  }
+});
+
 var didu = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to didu !!! :D
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
@@ -26,6 +64,7 @@ var didu = React.createClass({
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
+        <Login />
       </View>
     );
   }
