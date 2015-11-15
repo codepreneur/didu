@@ -6,6 +6,7 @@ const {
   StyleSheet,
   Text,
   TouchableHighlight,
+  Image,
   View,
 } = React;
 
@@ -19,13 +20,22 @@ class Landing extends React.Component{
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight
-          style={styles.login}
-          onPress={this.handleLogin.bind(this)}
-          underlayColor='white'>
-          <Text style={styles.loginText}> Login with Facebook </Text>
-        </TouchableHighlight>
-        <Login />
+        <Image
+          style={styles.image}
+          resizeMode={Image.resizeMode.cover}
+          source={{uri: 'http://economicpoint.com/sites/default/files/article_images/runner.jpg'}}>
+          
+          <Text style={styles.quote}> "Action expresses priorities" </Text>
+          <Text style={styles.author}> - Gandhi</Text>
+          <TouchableHighlight
+            style={styles.login}
+            onPress={this.handleLogin.bind(this)}
+            underlayColor='white'>
+            <Text style={styles.loginText}> Login with Facebook </Text>
+          </TouchableHighlight>
+
+          <Login />
+        </Image>
       </View>
     );
   }
@@ -34,14 +44,23 @@ class Landing extends React.Component{
 let styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    alignItems: 'stretch',
+  },
+  quote: {
+    paddingTop: 100,
+  },
+  author: {
+    paddingBottom: 70,
+  },
+  image: {
+    flex: 1,
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
   login: {
     height: 45,
-    backgroundColor: 'white',
-    borderColor: 'white',
+    marginTop: 50,
+    backgroundColor: 'yellow',
+    borderColor: 'yellow',
     justifyContent: 'center',
     borderWidth: 1,
     borderRadius: 8,
