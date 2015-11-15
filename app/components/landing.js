@@ -13,7 +13,7 @@ const {
 class Landing extends React.Component{
   handleLogin() {
     this.props.navigator.push({
-      title: 'didU Dashboard',
+      title: 'The beginning',
       component: Dashboard,
     });
   }
@@ -22,9 +22,8 @@ class Landing extends React.Component{
       <View style={styles.container}>
         <Image
           style={styles.image}
-          resizeMode={Image.resizeMode.cover}
-          source={{uri: 'http://economicpoint.com/sites/default/files/article_images/runner.jpg'}}>
-          
+          resizeMode={Image.resizeMode.contain}
+          source={require('./img/stretching.png')}>
           <Text style={styles.quote}> "Action expresses priorities" </Text>
           <Text style={styles.author}> - Gandhi</Text>
           <TouchableHighlight
@@ -44,10 +43,11 @@ class Landing extends React.Component{
 let styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'stretch',
+    alignItems: 'center',
   },
   quote: {
     paddingTop: 100,
+    fontSize: 20,
   },
   author: {
     paddingBottom: 70,

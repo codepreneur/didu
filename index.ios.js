@@ -25,7 +25,7 @@ class didu extends React.Component{
       <NavigatorIOS
         style={styles.container}
         initialRoute={{
-          title: 'welcome to didU',
+          title: 'Login',
           component: Landing,
         }} />
     );
