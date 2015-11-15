@@ -11,6 +11,7 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 
 #import "RCTRootView.h"
 
@@ -67,8 +68,9 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   
-  return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                  didFinishLaunchingWithOptions:launchOptions];
+  [[FBSDKApplicationDelegate sharedInstance] application:application
+                           didFinishLaunchingWithOptions:launchOptions];
+  return YES;
 }
 
 @end
