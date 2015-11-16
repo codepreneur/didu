@@ -1,4 +1,5 @@
 let React = require('react-native');
+let TutorialOne = require('./tutorial-one');
 
 const {
   StyleSheet,
@@ -11,6 +12,10 @@ const {
 class Dashboard extends React.Component{
   yourGoal() {
     console.log('go to your goal');
+    this.props.navigator.push({
+      title: 'Choose a goal',
+      component: TutorialOne,
+    });
   }
   friendGoal() {
     console.log('go to friends goal');
